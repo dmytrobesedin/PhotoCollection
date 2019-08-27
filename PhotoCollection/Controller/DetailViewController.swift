@@ -11,7 +11,6 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var detailPhotoImageView: UIImageView!{
         didSet{
-
             detailPhotoImageView.contentMode = .scaleAspectFit
             detailPhotoImageView.translatesAutoresizingMaskIntoConstraints = false
             guard let stringUrl = photo?.url else {return}
