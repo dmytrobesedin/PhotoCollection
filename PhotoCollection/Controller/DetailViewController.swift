@@ -9,29 +9,20 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
     @IBOutlet weak var detailPhotoImageView: UIImageView!{
         didSet{
-    detailPhotoImageView.backgroundColor = .black
+
             detailPhotoImageView.contentMode = .scaleAspectFit
             detailPhotoImageView.translatesAutoresizingMaskIntoConstraints = false
-            guard let photoName  = photo?.photoName else{return}
-            detailPhotoImageView.image = UIImage(named: photoName)
-          
-            
-            
-        }
+            guard let stringUrl = photo?.url else {return}
+            guard let url = URL(string:stringUrl) else {return}
+            guard let data = try? Data(contentsOf: url) else{return}
+            guard let image = UIImage(data: data) else {return}
+             detailPhotoImageView.image = image
+     }
     }
     var photo: Photo?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     
     }
-    
-    
-
-
-
 }

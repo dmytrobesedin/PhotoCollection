@@ -12,8 +12,11 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     var photo: Photo?{
         didSet{
-            guard let namePhoto = self.photo?.photoName else{return}
-            photoImageView.image = UIImage(named: namePhoto)
+            guard let stringUrl = photo?.url else {return}
+            guard let url = URL(string:stringUrl) else {return}
+            guard let data = try? Data(contentsOf: url) else{return}
+            guard let image = UIImage(data: data) else {return}
+            photoImageView.image = image
         }
     }
 }

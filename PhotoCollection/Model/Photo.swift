@@ -2,15 +2,32 @@
 //  Photo.swift
 //  PhotoCollection
 //
-//  Created by Дмитрий Беседин on 8/22/19.
+//  Created by Дмитрий Беседин on 8/27/19.
 //  Copyright © 2019 DmytroBesedin. All rights reserved.
 //
 
 import Foundation
 
-
 struct Photo {
-//    var name: String?
-  //  var path: String?
-    var photoName: String?
+    var albumId: Int?
+    var id: Int?
+    var url: String?
+    var thumbnailUrl: String?
+    
+    init?(json: [String: Any]) {
+        
+        guard
+            let albumId = json["albumId"] as? Int,
+            let id = json["id"] as? Int,
+            let url = json["url"] as? String,
+            let thumbnailUrl = json["thumbnailUrl"] as? String
+            else {
+                return nil
+        }
+        
+        self.albumId = albumId
+        self.id = id
+        self.url = url
+        self.thumbnailUrl = thumbnailUrl
+    }
 }
