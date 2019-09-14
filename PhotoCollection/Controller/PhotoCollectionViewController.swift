@@ -225,20 +225,20 @@ class PhotoCollectionViewController: UICollectionViewController{
         self.dismiss(animated: false, completion:  nil)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        let currentOfset = collectionView.contentOffset.y
-//        let maxOfSet = collectionView.contentSize.height - collectionView.frame.size.height
-//        if maxOfSet - currentOfset <= 40 /*indexPath.row == photo.count - 1*/{
-//            pagitionPhoto()
-//        }
-//       let lastPhoto = photo.count - 1
-//        if indexPath.row == photo.count - 1 {
-//            if totalPhoto > photo.count{
-//                pagition()
-//            }
-//        }
-        
-    }
+//    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+////        let currentOfset = collectionView.contentOffset.y
+////        let maxOfSet = collectionView.contentSize.height - collectionView.frame.size.height
+////        if maxOfSet - currentOfset <= 40 /*indexPath.row == photo.count - 1*/{
+////            pagitionPhoto()
+////        }
+////       let lastPhoto = photo.count - 1
+////        if indexPath.row == photo.count - 1 {
+////            if totalPhoto > photo.count{
+////                pagition()
+////            }
+////        }
+//
+//    }
 
     
     
@@ -254,7 +254,7 @@ extension PhotoCollectionViewController: UICollectionViewDataSourcePrefetching {
         }
         
         func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-           // ImagePreloader.cancelPreloadImagesForIndexPaths(indexPaths) // again, happens on a background queue
+            
             for indexPath in indexPaths {
                 self.cancelFetchPhoto(ofIndex: indexPath.row)
             }
