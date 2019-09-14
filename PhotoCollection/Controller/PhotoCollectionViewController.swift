@@ -46,7 +46,7 @@ class PhotoCollectionViewController: UICollectionViewController{
 //    }
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  photoCollectionView.delegate = self
+        photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         photoCollectionView.prefetchDataSource = self
        spacingForCollictionCell()
@@ -115,7 +115,7 @@ class PhotoCollectionViewController: UICollectionViewController{
                     if self.photoCollectionView.indexPathsForVisibleItems.contains(indexPath)  ?? false{
                          self.photoCollectionView.reloadItems(at: [IndexPath(row: index, section: 1)])
                     }
-                    self.photoCollectionView.reloadData()
+                  //  self.photoCollectionView.reloadData()
                 }
             }
         }
