@@ -8,14 +8,21 @@
 
 import Foundation
 
-struct Photo {
-    var albumId: Int?
-    var id: Int?
-    var url: String?
-    var thumbnailUrl: String?
+struct Photo: Codable {
+    var albumId: Int
+    var id: Int
+    var url: String
+    var thumbnailUrl: String
+    enum PhotoKeys:String, CodingKey {
+        case albumId = "albumId"
+        case id = "id"
+        case url = "url"
+        case thumbnailUrl = "thumbnailUrl"
+    }
+    
+    
     
     init?(json: [String: Any]) {
-        
         guard
             let albumId = json["albumId"] as? Int,
             let id = json["id"] as? Int,
@@ -24,7 +31,7 @@ struct Photo {
             else {
                 return nil
         }
-        
+
         self.albumId = albumId
         self.id = id
         self.url = url
