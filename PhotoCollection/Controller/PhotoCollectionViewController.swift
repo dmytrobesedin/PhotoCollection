@@ -21,6 +21,9 @@ class PhotoCollectionViewController: UICollectionViewController{
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         Reference.requestPhoto(complitionHandler:handleImageResponse(imageData:error:))
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
         spacingForCollictionCell()
     }
     
