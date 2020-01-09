@@ -31,7 +31,7 @@ struct Photo: Codable {
             else {
                 return nil
         }
-
+        
         self.albumId = albumId
         self.id = id
         self.url = url
