@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
-    var photo: Photo?{
+  public  var photo: Photo?{
         didSet{
             photoImageView.contentMode = .scaleAspectFit
             photoImageView.translatesAutoresizingMaskIntoConstraints = false

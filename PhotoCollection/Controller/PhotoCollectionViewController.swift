@@ -14,7 +14,7 @@ import Alamofire
 class PhotoCollectionViewController: UICollectionViewController{
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
-    var photo =  [Photo?]()
+   public var photo =  [Photo?]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class PhotoCollectionViewController: UICollectionViewController{
     }
     
     // MARK: - Spacing cell in collectionview
-    func spacingForCollictionCell(){
+  private  func spacingForCollictionCell(){
         guard var screenSize: CGRect = UIScreen.main.bounds else{return}
         guard var screenWidth: CGFloat = screenSize.width else{return}
         guard var screenHeight: CGFloat = screenSize.height else{return}
@@ -41,7 +41,7 @@ class PhotoCollectionViewController: UICollectionViewController{
     }
     
     // MARK: - HandleImageResponse
-    func handleImageResponse(imageData:[Photo?], error:Error?)  {
+ private   func handleImageResponse(imageData:[Photo?], error:Error?)  {
         self.photo = imageData
         DispatchQueue.main.async {
             self.photoCollectionView.reloadData()
